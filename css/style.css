@@ -1,0 +1,531 @@
+/* 
+** The Header Media Queries **
+** Tweak as per your needs **
+*/
+@font-face {
+	font-family: "YuGothic-M";
+	font-weight: normal;
+	 src: local("YuGothic-Medium"),
+		  local("Yu Gothic Medium"),
+		  local("YuGothic-Regular");
+}
+
+@font-face {
+	font-family: "YuGothic-M";
+	font-weight: bold;
+	 src: local("YoGothic-Bold"),
+		  local("Yu Gothic");
+}
+
+
+body {
+    font-size: 1.6rem;/* 16px */
+	font-family: -apple-system, blinkMacSystemFont, YuGothic-M, YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+	-webkit-text-size-adjust: 100%;
+	font-feature-settings: "palt";
+}
+
+html {
+	font-size: 62.5%;/* 16px x 0.625 = 10px(=1rem) */
+}
+
+.wrap {
+     overflow: hidden;
+ }
+
+/*========= LoadingのためのCSS ===============*/
+/* Loading背景画面設定　*/
+#splash {
+  /*fixedで全面に固定*/
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	background:#333;
+	text-align:center;
+	color:#fff;
+}
+
+.wrap {
+     overflow: hidden;
+ }
+
+/*========= 途中からハンバーガーメニューに変化するのためのCSS ===============*/
+
+/*========= ボタンのためのCSS ===============*/
+
+/*ボタン全体の形状*/
+.openbtn{
+    /*はじめは非表示に*/
+	display: none;
+    /*ボタンの位置*/
+	position:fixed;
+	top:10px;
+	right: 10px;
+	z-index: 999;
+    /*ボタンの形状*/
+	background:#666;
+	cursor: pointer;
+    width: 50px;
+    height:50px;
+	border-radius: 5px;
+}
+
+/*ボタンのアイコン設定*/
+.openbtn span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+	background-color: #fff;
+  	width: 45%;
+  }
+
+.openbtn span:nth-of-type(1) {
+	top:15px;	
+}
+
+.openbtn span:nth-of-type(2) {
+	top:23px;
+}
+
+.openbtn span:nth-of-type(3) {
+	top:31px;
+}
+
+/*activeクラスが付与された後のボタンのアイコン設定*/
+.openbtn.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+/*fadeDownクラスが付与された後のボタンの出現アニメーション設定*/
+.fadeDown {
+    animation-name: fadeDownAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    display: block;
+}
+@keyframes fadeDownAnime{
+  from {
+    opacity: 0;
+	transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+
+/*========= ヘッダーナビゲーションのためのCSS ===============*/
+
+/*==ヘッダーの形状*/
+#header{
+	height: 70px;
+	width:100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background:#333;
+	color:#fff;
+	text-align: center;
+	padding: 30px;
+}
+
+/*.doneクラスがついたヘッダー*/
+#header.dnone {
+	opacity: 0;/*透過0にして非表示に*/
+}
+
+/*メニューボタンをクリックした際に付与されるpanelactiveクラスがついたら*/
+#header.dnone.panelactive {
+	opacity: 1;/*不透明にして出現*/
+}
+
+
+/*==ヘッダーのテキストナビゲーションの形状*/
+#g-navi ul{
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
+
+#g-navi ul li a{
+	display: block;
+	text-decoration: none;
+	color: #666;
+	padding:30px;
+}
+
+#g-navi ul li.current a,
+#g-navi ul li a:hover{
+	color:#fff;	
+}
+
+/*.doneクラスがついたヘッダーのテキストナビゲーションの形状*/
+#header.dnone #g-navi{
+    /*固定位置にして最背面に*/
+    position:fixed;
+	top: 0;
+    left: 0;
+	z-index: -1;
+    /*高さと幅*/  
+	width:100%;
+	height: 100vh;
+    /*天地中央＆テキスト中央揃え*/  
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+    /*はじめは透過0に*/  
+    opacity: 0;
+	transition: all 0.4s;
+}
+
+/*メニューボタンをクリックした際に付与されるpanelactiveクラスがついたナビゲーションの形状*/
+#header.dnone.panelactive #g-navi{
+	opacity: 1;/*不透明に*/
+	z-index:3;/*最前面に*/
+	background:#eee;
+}
+
+#header.dnone.panelactive #g-navi ul{
+	display:block;/*flexの横並びをblockにして縦並びに*/
+}
+
+
+/*リストの形状*/
+
+#header.dnone.panelactive #g-navi li a{
+	color: #333;
+	text-decoration: none;
+	padding:10px;
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: bold;
+	transition:all 0.3s;
+}
+
+
+/* 以下は検証用のレイアウトのための CSS*/
+section{
+  padding:300px 0;
+}
+
+/*========= レイアウトのためのCSS ===============*/
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+h1{
+  font-size:3rem;
+}
+
+h2{
+  font-size:4rem;
+  text-align: center;
+  margin: 0 0 40px 0;
+  padding: 0.5em 0;/*上下の余白*/
+  border-top: solid 3px #333;/*上線*/
+  border-bottom: solid 3px #333;/*下線*/
+}
+
+h3{
+  font-size:2.5rem;
+  text-align: center;
+  margin: 0 0 40px 0;
+ 
+ }
+
+
+
+h4{
+	font-size:1rem;
+  text-align: center;
+  margin: 0 0 20px 0;
+	
+}
+p{
+  margin-top:30px; 
+  font-size:2rem;
+}
+
+section{
+  padding:30px;
+}
+
+section:nth-child(2n){
+  background:#f3f3f3; 
+}
+
+section img{
+	position: relative;
+	
+}
+
+/*== ボタン共通設定 */
+.btn{
+    /*アニメーションの起点とするためrelativeを指定*/
+    position: relative;
+	overflow: hidden;
+    /*ボタンの形状*/
+	text-decoration: none;
+	display: inline-block;
+   	border: 1px solid #555;/* ボーダーの色と太さ */
+    padding: 10px 30px;
+    text-align: center;
+    outline: none;
+    /*アニメーションの指定*/   
+    transition: ease .3s;
+}
+
+/*ボタン内spanの形状*/
+.btn span {
+	position: relative;
+	z-index: 3;/*z-indexの数値をあげて文字を背景よりも手前に表示*/
+	color:#333;
+}
+
+.btn:hover span{
+	color:#fff;
+}
+
+/*== 背景が流れる（左から右） */
+.bgleft:before {
+ 	content: '';
+    /*絶対配置で位置を指定*/
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	z-index: 2;
+    /*色や形状*/
+ 	background:#333;/*背景色*/
+ 	width: 100%;
+	height: 100%;
+    /*アニメーション*/
+ 	transition: transform .6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+ 	transform: scale(0, 1);
+	transform-origin: right top;
+}
+
+/*hoverした際の形状*/
+.bgleft:hover:before{
+	transform-origin:left top;
+	transform:scale(1, 1);
+}
+
+.contents-wrap {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 7rem;
+}
+.contents-wrap:nth-child(odd) {
+	flex-direction: row-reverse;
+}
+
+.contents-text {
+	width: 50%; /*flex: 2;*/
+}
+.contents-img {
+	width: 30%; /*flex: 1;*/
+	
+}
+.contents-text h2 {
+	margin-bottom: 2rem;
+	font-size: 2.2rem;
+}
+
+.contents-img img {
+	display: block;
+	width: 85%;
+	height: auto;
+}
+
+/* container */
+.wrapper{
+    width:100%;
+    background-image:url("../images/bmw-768688_1920.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position: center center;
+    background-color: rgba(255,255,255,0.5);
+    background-blend-mode: lighten;
+}
+.wrapper .container{
+    max-width:1300px;
+    margin:0px auto;
+    padding:100px 40px;
+}
+/* content */
+.wrapper .content .heading{
+    margin:0px 0px 40px 0px;
+    color:black;
+    font-size: 50px;
+    font-weight: normal;
+    text-align: center;
+}
+
+#footer {
+  background: #333;
+}
+ 
+#footer .cont-wrap {
+  padding: 35px;
+}
+ 
+#footer .info .address {
+  margin: 20px 0;
+  padding-left: 20px;
+  border-left: 1px solid #fff;
+  color: #ccc;
+}
+ 
+ #footer .cont-wrap .map {
+  width: 600px;
+  height: 300px;
+}
+ 
+#footer .cont-wrap .map iframe {
+  width: 100%;
+  height: 100%;
+}
+ 
+
+@media screen and (max-width: 720px){
+	.opn-btn{
+		display: none; 
+	}
+	
+	.contents-wrap,
+	.contents-wrap:nth-child(odd)  {
+		flex-direction: column;
+	}
+
+	.contents-text,
+	.contents-img {
+		width: 100%; /*flex: 1;*/
+	}
+
+	.contents-text {
+		padding: 2rem;
+	}
+
+	.contents-text h2 {
+		text-align: center;
+	}
+	
+  #header h1{
+		font-size:2rem;
+	}	
+	
+  #header ul{
+		display:none;
+	}
+	
+	
+  #main_image {
+  width : 80%; /* 画像の枠をさらに上位の枠の80%の横幅にする */
+  max-width : 400px; /* サイズの上限を設定する */
+  margin: 0 auto; /* 上下のマージンをゼロに、左右のマージンを自動に */
+  }
+
+  #main_image img {
+  width : 100%; /* 画像を枠の100%の横幅にする */
+  height: auto; /* 高さは自動で設定する */
+  }
+
+  #Service_image1 {
+  width : 50%; /* 画像の枠をさらに上位の枠の80%の横幅にする */
+  max-width : 400px; /* サイズの上限を設定する */
+  margin: 0 auto; /* 上下のマージンをゼロに、左右のマージンを自動に */
+  }
+
+  #Service_image1 img {
+  width : 100%; /* 画像を枠の100%の横幅にする */
+  height: auto; /* 高さは自動で設定する */
+  }
+
+  #Service_image2 {
+  width : 50%; /* 画像の枠をさらに上位の枠の80%の横幅にする */
+  max-width : 400px; /* サイズの上限を設定する */
+  margin: 0 auto; /* 上下のマージンをゼロに、左右のマージンを自動に */
+  }
+
+  #Service_image2 img {
+  width : 100%; /* 画像を枠の100%の横幅にする */
+  height: auto; /* 高さは自動で設定する */
+  }
+
+  #Service_image3 {
+  width : 50%; /* 画像の枠をさらに上位の枠の80%の横幅にする */
+  max-width : 400px; /* サイズの上限を設定する */
+  margin: 0 auto; /* 上下のマージンをゼロに、左右のマージンを自動に */
+  }
+
+  #Service_image3 img {
+  width : 100%; /* 画像を枠の100%の横幅にする */
+  height: auto; /* 高さは自動で設定する */
+  }
+
+  #Service_image4 {
+  width : 40%; /* 画像の枠をさらに上位の枠の80%の横幅にする */
+  max-width : 400px; /* サイズの上限を設定する */
+  margin: 0 auto; /* 上下のマージンをゼロに、左右のマージンを自動に */
+  }
+
+  #Service_image4 img {
+  width : 100%; /* 画像を枠の100%の横幅にする */
+  height: auto; /* 高さは自動で設定する */
+  }
+
+  #footer .cont-wrap {
+    padding: 30px 0;
+  }
+
+  #footer .cont-wrap .map {
+    margin-top: 20px;
+    width: 100%;
+    height: 200px;
+  }
+}
+	
+	
+@media only screen and (min-width: 719px) {
+  #footer .cont-wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+	
+  @media screen and (-webkit-min-device-pixel-ratio:0){
+	::i-block-chrome, body {
+		font-feature-settings: "pkna";
+	}
+}
