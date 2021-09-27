@@ -1,0 +1,262 @@
+/* 
+** The Header Media Queries **
+** Tweak as per your needs **
+*/
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
+
+body {
+    font-family: 'Sawarabi Mincho', sans-serif;
+}
+
+.wrap {
+     overflow: hidden;
+ }
+
+
+.contents {
+  width: 100%;
+  padding: 70px 0;
+  margin: 0 auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 1220px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+
+
+/* table01 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  font-size: 1.4rem;
+}
+#table01 tr {
+  
+  border-bottom: 1px solid #b5b1b1;
+}
+
+#table01 th,
+#table01 td {
+  padding: 24px 0;
+  border: none;
+}
+
+#table01 th {
+  width: 30%;
+}
+
+
+#footer {
+  position: relative;
+}
+ 
+#footer .main .left {
+  
+  padding: 50px 40px;
+}
+ 
+#footer .main .logo {
+  margin-bottom: 16px;
+  text-align: center;
+}
+ 
+#footer .main .logo > a {
+  display: inline-block;
+}
+ 
+#footer .main .address {
+  color: darkslategray;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 17px;
+  text-align: center;
+}
+ 
+#footer .main .right {
+  background: #333;
+}
+ 
+#footer .main .nav a {
+  color: #ccc;
+}
+ 
+#footer .main .c-btn {
+  margin-top: 10px;
+}
+ 
+@media only screen and (min-width: 767px) {
+  #footer .main {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #footer .main .left {
+    width: 50%;
+  }
+  #footer .main .left > .inner {
+    margin-left: auto;
+    text-align: center;
+    width: 600px;
+  }
+  #footer .main .head {
+    display: inline-block;
+    font-size: 0;
+  }
+  #footer .main .logo {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+  }
+	
+  #footer .main .address {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 20px;
+    padding-left: 20px;
+    position: relative;
+    text-align: left;
+    vertical-align: middle;
+  }
+  #footer .main .address::before {
+    background-color: #fff;
+    bottom: 0;
+    content: '';
+    height: 30px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  #footer .main .btn-wrap {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 280px;
+  }
+  #footer .main .btn-wrap > .btn-contact {
+    border-radius: 5px;
+  }
+  #footer .main .btn-wrap > .btn-contact > span {
+    height: 48px;
+    line-height: 50px;
+  }
+  .ie #footer .main .btn-wrap > .btn-contact > span {
+    line-height: 52px;
+  }
+  #footer .main .right {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 50%;
+  }
+  #footer .main .right > .inner {
+    padding-left: 50px;
+    width: 600px;
+  }
+  #footer .main .nav {
+    font-size: 0;
+    margin-bottom: -20px;
+  }
+  #footer .main .nav > li {
+    display: inline-block;
+    font-size: 13px;
+    margin-bottom: 20px;
+    margin-right: 15px;
+  }
+  #footer .main .nav a {
+    padding-right: 10px;
+    position: relative;
+  }
+  #footer .main .nav a::before {
+    content: '>';
+    position: absolute;
+    height: 3px;
+    right: 0;
+    top: 0;
+    width: 5px;
+    font-size: 12px;
+  }
+  #footer .main .nav a:hover {
+    color: #c4341a;
+    opacity: 1;
+  }
+  #footer .main .nav a:hover::before {
+    color: #c4341a;
+  }
+}
+.copyright{
+	position: relative;
+	text-align: center;
+}
+@media screen and (max-width: 768px){
+
+	.contents-wrap {
+		flex-direction: column;
+	}
+	
+	#footer .main .nav {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #footer .main .nav > li {
+    width: 50%;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+  }
+  #footer .main .nav > li:nth-child(odd) {
+    border-right: 1px solid #ccc;
+  }
+  #footer .main .nav a {
+    font-size: 11px;
+    padding: 20px 10px;
+    padding-right: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 60px;
+  }
+	
+  #table01 th,
+  #table01 td {
+    width: 100%;
+    display: block;
+  }
+
+  #table01 th {
+    width: 100%;
+  }
+
+  #table01 td {
+    padding-top: 0;
+  }
+	
+  .container {
+    padding: 0 20px;
+  }
+}
+
+section {
+  width: 100%;
+  margin-bottom: 120px;
+}
+
+
