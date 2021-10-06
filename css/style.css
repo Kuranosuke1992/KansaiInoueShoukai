@@ -109,18 +109,29 @@ html {
 	font-weight: bold;
 }
 
+
+/*========= 途中からハンバーガーメニューに変化するのためのCSS ===============*/
+
 /*========= ボタンのためのCSS ===============*/
+
+/*ボタン全体の形状*/
 .openbtn{
-	position:fixed;
-        z-index: 9999;/*ボタンを最前面に*/
-	top:10px;
-	right: 10px;
-	cursor: pointer;
-        width: 50px;
-        eight:50px;
-        }
-	
-/*×に変化*/	
+    /*はじめは非表示に*/
+  display: none;
+    /*ボタンの位置*/
+  position:fixed;
+  top:10px;
+  right: 10px;
+  z-index: 999;
+    /*ボタンの形状*/
+  background:#666;
+  cursor: pointer;
+    width: 50px;
+    height:50px;
+  border-radius: 5px;
+}
+
+/*ボタンのアイコン設定*/
 .openbtn span{
     display: inline-block;
     transition: all .4s;
@@ -128,38 +139,59 @@ html {
     left: 14px;
     height: 3px;
     border-radius: 2px;
-    background-color: #666;
+  background-color: #fff;
     width: 45%;
   }
 
 .openbtn span:nth-of-type(1) {
-	top:15px;	
+  top:15px; 
 }
 
 .openbtn span:nth-of-type(2) {
-	top:23px;
+  top:23px;
 }
 
 .openbtn span:nth-of-type(3) {
-	top:31px;
+  top:31px;
 }
 
-.openbtn.active span:nth-of-type(1) {
+/*activeクラスが付与された後のボタンのアイコン設定*/
+.openbtn .active span:nth-of-type(1) {
     top: 18px;
     left: 18px;
     transform: translateY(6px) rotate(-45deg);
     width: 30%;
 }
 
-.openbtn.active span:nth-of-type(2) {
-	opacity: 0;
+.openbtn .active span:nth-of-type(2) {
+  opacity: 0;
 }
 
-.openbtn.active span:nth-of-type(3){
+.openbtn .active span:nth-of-type(3){
     top: 30px;
     left: 18px;
     transform: translateY(-6px) rotate(45deg);
     width: 30%;
+}
+
+/*fadeDownクラスが付与された後のボタンの出現アニメーション設定*/
+.fadeDown {
+    animation-name: fadeDownAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    display: block;
+}
+@keyframes fadeDownAnime{
+  from {
+  opacity: 0;
+  transform: translateY(-100px);
+  }
+
+  to {
+  opacity: 1;
+  transform: translateY(0);
+  }
 }
 
 
@@ -253,65 +285,153 @@ html {
 	transition:all 0.3s;
 }
 
+.section {
+	margin: 0 0 2rem;
+	padding: 2rem 0;
+}
+.section-title{
+	text-align: center;
+	font-size: 40px;
+}
+.section-area {
+	margin: 0 auto;
+	width: 1000px;
+}
+.contents-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	
+}
+
+.contents-box {
+	margin-bottom: 3rem;
+	padding: 3.5rem;
+	width: 32%;
+	background-color: #f0f0f0;
+}
+
+.contents-box img {
+	display: flex;
+	margin-bottom: 1rem;
+	width: 90%;
+	height: 90%;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.flex{
+  padding:2px 0;
+  display:flex;
+  justify-content:center;
+}
+
+#access{
+	display: flex;
+}
+/*--------------------------------------------------------------
+   ACCESS
+--------------------------------------------------------------*/
+.access{
+  width: 1040px;
+  margin: 0 auto;
+  padding: 100px 0 125px;
+  display: flex;
+}
+.access__box{
+  margin-top: 40px;
+}
+.access__map{
+  width: 680px;
+  float: left;
+}
+.access__address{
+  width: 340px;
+  padding-left: 20px;
+  box-sizing: border-box;
+  float: right;
+}
+.access__map iframe{
+  width: 100%;
+  height: 425px;
+  border: none;/*frameborderを消したことでborderがついてるため*/
+  display:flex;
+}
+.access__address h3{
+  margin-bottom: 23px;
+  padding: 17px 0 18px;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: solid 3px #74859f;
+  
+}
+.access__address__box,
+.access__staff__message{
+  font-size: 14px;
+  line-height: 1.5;
+  
+}
+.access__address__box .sup{
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #eee;
+  
+}
+.access__address .site__link{
+  font-size: 0;
+  margin-top: 25px;
+}
+.access__address .site__link .site__link__item{
+  display: inline-block;
+}
+.access__address .site__link .site__link__item + .site__link__item{
+  margin-left: 20px;
+}
+.access__address .site__link a{
+  display: block;
+  width: 70px;
+  height: 70px;
+  padding: 20px 16px 0;
+  box-sizing: border-box;
+  background-color: #74859f;
+  border-radius: 35px;
+}
+.access__address .site__link img{
+  width: 100%;
+  height: auto;
+}
+
 
 /* 以下は検証用のレイアウトのための CSS*/
-section{
-  padding:300px 0;
+/*title*/
+.base__title{
+  text-align: center;
+  color: #74859f;
+  font-weight: bold;
+}
+.base__title h2{
+  font-size: 32px;
+  font-weight: bold;
+}
+.base__title h2 div{
+  font-size: 16px;
+  margin-bottom: 13px;
+  letter-spacing: .2rem;
+}
+.base__title .deco{
+  width: 20px;
+  height: 3px;
+  margin: 18px auto 0;
+  background-color: #ccc;
 }
 
-/*========= レイアウトのためのCSS ===============*/
-img {
-  max-width: 100%;
-  display: block;
-}
 
 
 h1{
   font-size:3rem;
 }
 
-h2{
-  font-size:4rem;
-  text-align: center;
-  margin: 0 0 40px 0;
-  padding: 0.5em 0;/*上下の余白*/
-  border-top: solid 3px #333;/*上線*/
-  border-bottom: solid 3px #333;/*下線*/
-}
-
-h3{
-  font-size:2.5rem;
-  text-align: center;
-  margin: 0 0 40px 0;
-  border-top: solid 3px #333;/*上線*/
-  border-bottom: solid 3px #333;/*下線*/
- }
-
-
-
-h4{
-	font-size:1rem;
-  text-align: center;
-  margin: 0 0 20px 0;
-	
-}
-p{
-  margin-top:30px; 
-  font-size:2rem;
-}
-
-section{
-  padding:30px;
-}
-
-section:nth-child(2n){
-  background:#f3f3f3; 
-}
-
-section img{
-	position: relative;
-	
-}
 
 /*== ボタン共通設定 */
 .btn{
@@ -354,37 +474,11 @@ section img{
 .inline-block{
   display:inline-block;
 }
-.contents-wrap {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 7rem;
-}
-.contents-wrap:nth-child(odd) {
-	flex-direction: row-reverse;
-}
-
-.contents-text {
-	width: 50%; /*flex: 2;*/
-}
-.contents-img {
-	width: 30%; /*flex: 1;*/
-	
-}
-.contents-text h2 {
-	margin-bottom: 2rem;
-	font-size: 2.2rem;
-}
-
-.contents-img img {
-	display: block;
-	width: 85%;
-	height: auto;
-}
 
 /* container */
 .wrapper{
     width:100%;
-    background-image:url("../images/bmw-768688_1920.jpg");
+    background-image:url("../images/20210821-SDIM2336.jpg");
     background-repeat:no-repeat;
     background-size:cover;
     background-position: center center;
@@ -394,7 +488,7 @@ section img{
 .wrapper .container{
     max-width:1300px;
     margin:0px auto;
-    padding:100px 40px;
+    padding:140px 90px;
 }
 /* content */
 .wrapper .content .heading{
@@ -405,51 +499,64 @@ section img{
     text-align: center;
 }
 
-#footer {
-  background: #333;
+#footer02 {
+  background: #222;
 }
  
-#footer .cont-wrap {
-  padding: 35px;
+.ie #footer02 .logo img,
+#footer02 .logo {
+  display: inline-block;
+  width: 120px;
 }
  
-#footer .info .address {
-  margin: 20px 0;
-  padding-left: 20px;
-  border-left: 1px solid #fff;
+#footer02 .nav li a {
+  padding: 15px;
   color: #ccc;
 }
  
- #footer .cont-wrap .map {
-  width: 700px;
-  height: 300px;
+#footer02 .c-btn {
+  margin-left: 25px;
 }
  
-#footer .cont-wrap .map iframe {
-  width: 100%;
-  height: 100%;
+ 
+@media screen and (min-width: 641px) {
+  #footer02 .logo {
+    padding: 10px 0;
+  }
+ 
+  #footer02 .wrap {
+    padding: 20px 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+  #footer02 .cont {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+ 
+  #footer02 .nav {
+    display: inline-block;
+  }
+ 
+  #footer02 .nav li {
+    display: inline-block;
+  }
+ 
+  #footer02 .nav li a:hover {
+    color: #ca353b;
+  }
 }
  
-
 @media screen and (max-width: 720px){
-	
-	.contents-wrap,
-	.contents-wrap:nth-child(odd)  {
-		flex-direction: column;
-	}
-
-	.contents-text,
-	.contents-img {
-		width: 100%; /*flex: 1;*/
-	}
-
-	.contents-text {
-		padding: 2rem;
-	}
-
-	.contents-text h2 {
-		text-align: center;
-	}
 	
   #header h1{
 		font-size:2rem;
@@ -459,6 +566,37 @@ section img{
 		display:none;
 	}
 	
+    #footer02 {
+    padding: 20px 0 0;
+  }
+ 
+  #footer02 .inner-block {
+    padding: 0;
+  }
+ 
+  .ie #footer02 .logo img,
+  #footer02 .logo {
+    display: block;
+    margin: 0 auto 20px;
+  }
+ 
+  #footer02 .c-btn {
+    margin-bottom: 20px;
+  }
+ 
+  #footer02 .nav li {
+    border-top: 1px solid #555;
+  }
+ 
+  #footer02 .nav li a {
+    padding: 12px 20px;
+    display: block;
+    background-size: 5px auto;
+  }
+ 
+  #footer02 .nav li:last-child {
+    border-bottom: 1px solid #555;
+  }
 	
   #main_image {
   width : 80%; /* 画像の枠をさらに上位の枠の80%の横幅にする */
@@ -471,51 +609,43 @@ section img{
   height: auto; /* 高さは自動で設定する */
   }
 
-  #Service_image1 {
-  width : 50%; /* 画像の枠をさらに上位の枠の80%の横幅にする */
-  max-width : 400px; /* サイズの上限を設定する */
-  margin: 0 auto; /* 上下のマージンをゼロに、左右のマージンを自動に */
+ 
+   .contents-wrap {
+      flex-direction: column;
   }
 
-  #Service_image1 img {
-  width : 100%; /* 画像を枠の100%の横幅にする */
-  height: auto; /* 高さは自動で設定する */
+  .contents-box {
+    display: none;
+    flex-direction: column;
+    gap: 4vh;
+    padding: 4vh
+
+  }
+	
+  .wrapper .container{
+  max-width:768px;
+  height: 350px;
+  margin:0px auto;
+  padding:90px 30px;
+}
+  .section {
+  margin: 2rem;
+  padding: 2rem 0;
+    }
+  .section-area {
+      margin: 0 auto;
+      width: 800px;
   }
 
-  #Service_image2 {
-  width : 50%; /* 画像の枠をさらに上位の枠の80%の横幅にする */
-  max-width : 400px; /* サイズの上限を設定する */
-  margin: 0 auto; /* 上下のマージンをゼロに、左右のマージンを自動に */
-  }
+  .section contents-box {
+      width: auto;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
 
-  #Service_image2 img {
-  width : 100%; /* 画像を枠の100%の横幅にする */
-  height: auto; /* 高さは自動で設定する */
   }
-
-  #Service_image3 {
-  width : 50%; /* 画像の枠をさらに上位の枠の80%の横幅にする */
-  max-width : 400px; /* サイズの上限を設定する */
-  margin: 0 auto; /* 上下のマージンをゼロに、左右のマージンを自動に */
-  }
-
-  #Service_image3 img {
-  width : 100%; /* 画像を枠の100%の横幅にする */
-  height: auto; /* 高さは自動で設定する */
-  }
-
-  #Service_image4 {
-  width : 40%; /* 画像の枠をさらに上位の枠の80%の横幅にする */
-  max-width : 400px; /* サイズの上限を設定する */
-  margin: 0 auto; /* 上下のマージンをゼロに、左右のマージンを自動に */
-  }
-
-  #Service_image4 img {
-  width : 100%; /* 画像を枠の100%の横幅にする */
-  height: auto; /* 高さは自動で設定する */
-  }
-　
-　.button {
+	
+	
+	.button {
 	padding: 10px 90px;
     font-weight: bold;
     background-color: #666;
@@ -533,23 +663,79 @@ section img{
         border: 2px solid #666;
         color: #666 !important;
     }
- 
-@media only screen and (min-width: 719px) {
-  #footer .cont-wrap {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-  }
-}
+
 	
-  @media screen and (-webkit-min-device-pixel-ratio:0){
-	::i-block-chrome, body {
-		font-feature-settings: "pkna";
-	}
+  /*--------------------------------------------------------------
+   ACCESS
+--------------------------------------------------------------*/
+.access{
+  width: 500px;
+  margin: 0 auto;
+  padding: 100px 0 125px;
 }
+.access__box{
+  margin-top: 20px;
+}
+.access__map{
+  width: 300px;
+ 
+}
+.access__address{
+  width: 200px;
+  padding-left: 10px;
+  box-sizing: border-box;
+ 
+}
+.access__map iframe{
+  width: 100%;
+  height: 425px;
+  border: none;/*frameborderを消したことでborderがついてるため*/
+  display:flex;
+}
+.access__address h3{
+  margin-bottom: 23px;
+  padding: 17px 0 18px;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: solid 3px #74859f;
+  
+}
+.access__address__box,
+.access__staff__message{
+  font-size: 14px;
+  line-height: 1.5;
+  
+}
+.access__address__box .sup{
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #eee;
+  
+}
+.access__address .site__link{
+  font-size: 0;
+  margin-top: 25px;
+}
+.access__address .site__link .site__link__item{
+  display: inline-block;
+}
+.access__address .site__link .site__link__item + .site__link__item{
+  margin-left: 20px;
+}
+.access__address .site__link a{
+  display: block;
+  width: 70px;
+  height: 70px;
+  padding: 20px 16px 0;
+  box-sizing: border-box;
+  background-color: #74859f;
+  border-radius: 35px;
+}
+.access__address .site__link img{
+  width: 100%;
+  height: auto;
+}
+
+ 
+
 }
